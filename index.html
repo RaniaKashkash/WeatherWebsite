@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="weather page">
+    <meta name="keywords" content="weather,forcast,city">
+    <meta name="author" content="Rania Kashkash">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ^ Bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <!-- ^ Fav icon -->
+    <link href="./images/logo@2x.png" rel="icon" type="image/png">
+
+    <!-- ^ Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- ^ Font awesome Link -->
+    <link rel="stylesheet" href="./css/all.min.css">
+
+    <!-- ^ My own css file -->
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Weather page</title>
+</head>
+
+<body>
+
+    <!--^ Navbar -->
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid d-flex">
+                <a class="navbar-brand d-flex align-items-start gap-2" href="#">
+                    <img src="./images/logo@2x.png" alt="Logo" width="70" class="d-inline-block align-text-top">
+                    <div class="logo-type text-white">
+                        <h1 class="site-title">Weather</h1>
+                        <p>tagline goes here</p>
+                    </div>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item mx-1">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="#">News</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="#">Live cameras</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="#">Photos</a>
+                    </li>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-image overflow-hidden">
+        <!-- ^ Search -->
+        <div class="search-section position-relative container d-flex align-items-center px-0 mt-5">
+            <input class="form-control m-0" type="search" id="searchInput" placeholder="Find your location..."
+                aria-label="Search">
+            <button class="btn btn-outline-success" id="searchBtn" type="submit">Find</button>
+        </div>
+        <!-- ^weather details -->
+        <div class="container">
+
+            <div class="row g-0 mx-auto weather-row">
+                <div class="col-md-4">
+                    <div class="forcast-header d-flex justify-content-between">
+                        <p class="day text-left mb-0"></p>
+                        <p class="date text-right mb-0"></p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="forcast-header text-center tomorrow-header">
+                        <p class="tomorrow m-0"></p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="forcast-header text-center">
+                        <p class="afterTomorrow m-0"></p>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row g-0 mx-auto">
+                <div class="col-md-4 d-flex">
+                    <div class="forcast-content today-card w-100 h-100">
+                        <p class="cityName"></p>
+                        <h2 class="todayDegree text-white fw-bolder"></h2>
+                        <div class="todayForecastIcon icon"></div>
+                        <div class="todayState state"></div>
+                        <div class="d-flex weatherDetails mt-3">
+                            <span class="humidity d-flex align-items-center gap-1">
+                                <i class="fa-solid fa-umbrella"></i>
+                                <span class="value m-0"></span>
+                            </span>
+                            <span class="wind d-flex align-items-center gap-1">
+                                <i class="fa-solid fa-wind"></i>
+                                <span class="value m-0"></span>
+                            </span>
+                            <span class="windDirection d-flex align-items-center gap-1">
+                                <i class="fa-solid fa-compass"></i>
+                                <span class="value m-0"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 d-flex">
+                    <div class="forcast-content tomorrow-card w-100 h-100 text-center">
+                        <div class="tomorrowforecastIcon icon"></div>
+                        <div class="tomorrowsDegree text-white">
+                            <p class="tomorrowMaxDegree"></p>
+                            <p class="tomorrowMinDegree"></p>
+                        </div>
+                        <div class="tomorrowState state"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 d-flex">
+                    <div class="forcast-content next-tomorrow-card w-100 h-100 text-center">
+                        <div class="afterTomorrowforecastIcon icon"></div>
+                        <div class="tomorrowsDegree text-white">
+                            <p class="nextTomorrowMaxDegree"></p>
+                            <p class="nextTomorrowMinDegree"></p>
+                        </div>
+                        <div class="afterTomorrowState state"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ^ Footer section-->
+    <footer class="footer">
+            <div class="container overflow-hidden">
+                <div class="row mt-5 align-items-center">
+                    <div class="col-md-8 px-0">
+                        <div class="search-section position-relative container d-flex align-items-center px-0">
+                            <input class="form-control m-0" type="search" id="subscribeInput"
+                                placeholder="Enter your email to subscribe..." aria-label="Search">
+                            <button class="btn btn-outline-success" id="subscribeBtn" type="submit">Subscribe</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="social-icon">
+                            <ul class=" list-unstyled d-flex justify-content-end gap-1 m-0">
+                                <li>
+                                    <a href="http://www.facebook.com " class="text-decoration-none"> 
+                                        <div class="d-flex justify-content-center align-items-center">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://www.twitter.com" class="text-decoration-none">
+                                        <div class="d-flex justify-content-center align-items-center">
+                                        <i class="fa-brands fa-twitter"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/" class="text-decoration-none">
+                                        <div class="d-flex justify-content-center align-items-center">
+                                        <i class="fa-brands fa-google-plus-g"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.pinterest.com/" class="text-decoration-none">
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <i class="fa-brands fa-pinterest-p"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="copyRight-div ">
+                    <p class="mt-4">Copyright 2014 Company name. Designed by Themezy. All rights reserved</p>
+                </div>
+                
+            </div>
+           
+    </footer>
+
+    <script src="./js/bootstrap.bundle.js"></script>
+    <script src="./js/main.js"></script>
+
+</body>
+
+</html>
